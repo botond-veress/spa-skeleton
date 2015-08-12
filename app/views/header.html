@@ -1,0 +1,6 @@
+﻿<header id="header">
+    Header
+    <div data-bind="foreach: navigationManager.router.visibleNavigationModel()">
+        <a href="#" data-bind="text: title, attr: { href: hash }, css: { active: isActive }"></a>
+    </div>
+</header>

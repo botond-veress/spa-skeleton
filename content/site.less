@@ -1,0 +1,53 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800);
+@import (reference) 'less/_theme.less';
+@import (once) 'less/_reset';
+@import (once) 'less/_core.less';
+@import (once) 'less/_animations.less';
+@import (once) 'less/_loaders.less';
+
+/*#region global */
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    .stretch;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    background: @color-secondary-background;
+}
+
+*, :after, :before {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input {
+    font: inherit;
+    line-height: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*#endregion */
+
+.link {
+    color: inherit;
+    text-decoration: none;
+
+    &.link-special {
+        color: @color-primary-special;
+
+        &:hover {
+            color: @color-primary-special-darker;
+        }
+    }
+}

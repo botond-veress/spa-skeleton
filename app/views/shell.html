@@ -1,0 +1,20 @@
+﻿<div id="shell" class="scrollable" data-bind="hotkeys: hotkeyManager.handler">
+    <!-- ko compose: { view: 'templates/controls' } --><!-- /ko -->
+    <!-- ko compose: { model: 'viewmodels/header' } --><!-- /ko -->
+    <div id="container">
+        <div id="content" data-bind="router: { transition: 'fade', cacheViews: false }"></div>
+        <div id="modals" data-bind="foreach: modalManager.modals, css: { visible: !modalManager.modals.empty() }">
+            <div class="modal">
+                <div class="content" data-bind="compose: { model: 'viewmodels/dialogs/' + name(), activationData: data }"></div>
+            </div>
+        </div>
+    </div>
+    <div id="notifications" data-bind="foreach: notificationManager.notifications">
+        <div class="notification notification-failure visible" data-bind="css: { 'notification-success': success, 'notification-failure': failure, 'notification-warning': warning, 'notification-info': info }, event: { mouseover: over, mouseout: out }">
+            <div class="notification-content">
+                <div data-bind="html: message"></div>
+                <div class="notification-close" data-bind="click: close">&times;</div>
+            </div>
+        </div>
+    </div>
+</div>

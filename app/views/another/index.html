@@ -1,0 +1,14 @@
+﻿<div id="another">
+    <div>Another content</div>
+    <div>
+        Another navigation:
+        <div data-bind="foreach: router.visibleNavigationModel()">
+            <a href="#" data-bind="text: title, attr: { href: hash }, css: { active: isActive }"></a>
+        </div>
+    </div>
+    <div>
+        Another subview:
+        <div data-bind="router: { transition: 'fade', cacheViews: false }"></div>
+    </div>
+    <div>Another footer</div>
+</div>

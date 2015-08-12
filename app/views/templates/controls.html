@@ -1,0 +1,138 @@
+﻿<script type="text/html" id="validation-message-template">
+    <span class="error message visible" data-bind="validationMessageCache: field"></span>
+</script>
+
+<script type="text/html" id="text-control-template">
+    <div class="control text" data-bind="css: css">
+        <input class="value" data-bind="value: value, valueUpdate: update(), attr: { placeholder: placeholder, readonly: readonly, type: type }" />
+        <div class="label" data-bind="text: label"></div>
+        <div class="template" data-bind="template: { if: template.src, name: template.src, data: template.params }"></div>
+    </div>
+</script>
+
+<script type="text/html" id="textarea-control-template">
+    <div class="control text" data-bind="css: css">
+        <textarea class="value" data-bind="value: value, valueUpdate: update(), attr: { placeholder: placeholder, readonly: readonly, type: type }"></textarea>
+        <div class="label" data-bind="text: label"></div>
+        <div class="template" data-bind="template: { if: template.src, name: template.src, data: template.params }"></div>
+    </div>
+</script>
+
+<script type="text/html" id="max-text-control-template">
+    <div class="control text required">
+        <input class="value" data-bind="value: value, valueUpdate: update(), attr: { placeholder: placeholder, readonly: readonly, type: type }" />
+        <div class="label" data-bind="text: label"></div>
+        <div class="hint" data-bind="with: character">
+            <span class="current" data-bind="text: current"></span>
+            <span class="max" data-bind="text: character.max"></span>
+            <span class="unit" data-bind="text: character.unit"></span>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="checkbox-control-template">
+    <div class="control checkbox label hint required" data-bind="css: { disabled: readonly }">
+        <label class="item">
+            <input class="value" data-bind="checked: value, attr: { type: type }" />
+            <span class="icon"></span>
+            <span class="text" data-bind="text: label"></span>
+        </label>
+    </div>
+</script>
+
+<script type="text/html" id="radio-control-template">
+    <div class="control checkbox label hint required" data-bind="css: { disabled: readonly }">
+        <label class="item">
+            <input class="value" name="a" id="a" data-bind="checked: value, attr: { type: type }" />
+            <span class="icon"></span>
+            <span class="text" data-bind="text: label"></span>
+        </label>
+    </div>
+</script>
+
+<script type="text/html" id="forgot-password-template">
+    <div class="forgot-password">
+        <div class="forgot-password-sign">?</div>
+        <div class="tooltip">
+            Recover your password <a href="#" class="link" data-bind="attr: { href: recover }">here</a>.
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="header-item-template">
+    <div class="header-item" data-bind="css: { open: opened, active: active }">
+        <a class="header-item-name link" href="#" data-bind="text: name, attr: { href: hash }, click: action"></a>
+        <!-- ko template: { foreach: items, name: 'header-item-template' } --><!-- /ko -->
+    </div>
+</script>
+
+<script type="text/html" id="select-control-template">
+    <div class="control select" data-bind="css: css, clickOutside: open.close">
+        <input class="value" data-bind="value: value, valueUpdate: update(), attr: { placeholder: placeholder, readonly: readonly, type: type }, click: open.open" />
+        <div class="label" data-bind="text: label"></div>
+        <div class="arrow">
+            <i class="icon-arrow-down"></i>
+        </div>
+        <div class="options" data-bind="foreach: options.filtered, css: { open: open }">
+            <div class="option" data-bind="text: display, click: $parent.select"></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="activity-item-template">
+    <div class="overview-activity-entry">
+        <div class="overview-activity-avatar" data-bind="style: { backgroundImage: source.avatar }"></div>
+        <div class="overview-activity-content">
+            <div class="overview-activity-data" data-bind="template: { name: 'activity-item-' + template + '-template' }"></div>
+            <div class="overview-activity-date" data-bind="text: date.display"></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="activity-item-vacation-approval-template">
+    <a href="#" data-bind="text: source.name"></a> has approved your
+    <a href="#">vacation request</a>.
+</script>
+
+<script type="text/html" id="activity-item-vacation-denial-template">
+    <a href="#" data-bind="text: source.name"></a> has denied your
+    <a href="#">vacation request</a>.
+</script>
+
+<script type="text/html" id="activity-item-project-join-template">
+    <a href="#" data-bind="text: source.name"></a> started to work on
+    <a href="#" data-bind="text: target.name"></a>.
+</script>
+
+<script type="text/html" id="activity-item-project-quit-template">
+    <a href="#" data-bind="text: source.name"></a> stopped to work on
+    <a href="#" data-bind="text: target.name"></a>.
+</script>
+
+
+<script type="text/html" id="wizard-step-report-type-template">
+    <div class="wizard-step">
+        <div class="">Report type</div>
+        <div class="">
+            <!-- ko template: { name: 'radio-control-template', data: employee } --><!-- /ko -->
+            <!-- ko template: { name: 'radio-control-template', data: project } --><!-- /ko -->
+            <!-- ko template: { name: 'radio-control-template', data: client } --><!-- /ko -->
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="wizard-step-report-source-template">
+    <div class="wizard-step">
+        <div class="">Select them</div>
+        <div class="">
+            <!-- ko template: { name: 'checkbox-control-template', data: all } --><!-- /ko -->
+            <!-- ko foreach: source -->
+                <!-- ko template: { name: 'checkbox-control-template' } --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="wizard-step-report-date-template">
+    WIZARD DATE
+</script>
